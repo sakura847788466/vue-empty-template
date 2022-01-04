@@ -1,13 +1,10 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 <!--
  * @Descripttion: 系统设置
  * @version: 1.0
  * @Author: Ada
  * @Date: 2021-12-30 11:31:09
  * @LastEditors: Ada
- * @LastEditTime: 2022-01-04 16:19:56
+ * @LastEditTime: 2022-01-04 16:45:18
 -->
 
 <template>
