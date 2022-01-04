@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Source Han Serif CN;
+    src: url(./NotoSerifCJKsc-Black.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Source Han Sans CN;
+    src: url(./SourceHanSansCN-Normal.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: DIN;
+    src: url(./DIN-MEDIUM.OTF);
+    font-weight: normal;
+    font-style: normal;
+}

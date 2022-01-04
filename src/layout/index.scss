@@ -1,0 +1,34 @@
+@import '@/style/mixin.scss';
+$left-width:130px;
+$left-margin-right:24px;
+#main-layout{
+  height: 100%;
+  width: 100%;
+  @include flexCenter(center);
+  flex-direction: column;
+  .top{
+    width: 100%;
+    height: 70px;
+    background: #FFFFFF;
+  }
+  .main-content{
+    width: 100%;
+    height: calc(100% - 70px);
+    padding: 24px;
+    box-sizing: border-box;
+    background: #EDF1F9;
+    @include flexCenter(center);
+    .left-slider{
+      width: $left-width;
+      height: 100%;
+      background: #EDF1F9;
+      margin-right: $left-margin-right;
+      @include flexCenter(center);
+
+    }
+    .main-box{
+      width: calc(100% - 154px);
+      height: 100%;
+    }
+  }
+}
