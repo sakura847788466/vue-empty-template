@@ -4,7 +4,7 @@
  * @Author: Ada
  * @Date: 2021-12-30 11:31:09
  * @LastEditors: Ada
- * @LastEditTime: 2022-01-04 16:45:18
+ * @LastEditTime: 2022-01-04 16:56:24
 -->
 
 <template>
@@ -377,7 +377,6 @@ export default {
                 maxVelocity: 15
               }).addTo(this.map);
       }
-     
     },
     // 添加单点数据
     addOnlyStation() {
