@@ -4,7 +4,7 @@
  * @Author: Ada
  * @Date: 2021-12-30 14:37:53
  * @LastEditors: Ada
- * @LastEditTime: 2021-12-30 14:37:53
+ * @LastEditTime: 2022-01-05 14:32:08
  */
 import Vue from 'vue'
 import {
@@ -38,7 +38,9 @@ import {
   InputNumber,
   Dropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Submenu,
+  MenuItem
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Dialog)
@@ -69,6 +71,8 @@ Vue.use(InputNumber)
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
+Vue.use(Submenu)
+Vue.use(MenuItem)
 Vue.use(Loading)
 Vue.use(Loading.directive)
 

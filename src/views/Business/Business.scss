@@ -1,0 +1,190 @@
+@import '../../style/mixin.scss';
+.business-page{
+  width: 100%;
+  height: 100%;
+  padding:16px 26px;
+  box-sizing: border-box;
+  position: relative;
+  .right-option{
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include flex(center,end);
+    i{
+      font-size: 24px;
+      cursor: pointer;
+      color: #545454;
+    }
+    
+    .menu-option{
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.39);
+      border-radius: 4px;
+      border: 1px solid #DADADA;
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+      margin-left: 10px;
+      .menu-title{
+        width: 100%;
+        height: 44px;
+        @include flexCenter(center);
+      }
+      .menu-list{
+        width: 100%;
+        height: calc(100% - 44px);
+      }
+    }
+    .isWidth{
+      width: 346px;
+      height: 646px;
+      .menu-title{
+        padding:10px;
+        box-sizing: border-box;
+        justify-content: end;
+        border-bottom: 1px solid #DADADA;
+        i{
+          color: #3894FF;
+        }
+      }
+      .menu-list{
+        width: 100%;
+        height: calc(100% - 46px);
+        padding:9px 14px;
+        box-sizing: border-box;
+        .menu-list-item{
+          width: 318px;
+          height: 140px;
+          background: rgba(255, 255, 255, 0.39);
+          border: 1px solid #D8D8D8;
+          border-radius: 8px;
+          padding: 13px 10px 15px 10px;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          // text-indent: 30px;
+          .sign{
+            font-size: 13px;
+            line-height: 32px;
+            background: orange;
+            position: absolute;
+            top: -59px;
+            right: -19px;
+            z-Index: 2;
+            padding: 0 30px;
+            transform-origin: left top;
+            transform: translate(29.29%,100%) rotate(41deg);
+            text-indent: 0;
+            color: #85CC64;
+            border: 1px solid #85CC64;
+            font-weight: bold;
+            background: #EEF8E8;
+          }
+          .title-sign{
+            width: 106px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.39);
+            border: 1px solid #62A1FF;
+            border-radius: 3px;
+            padding:3px;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+            .title-span{
+              width: 100%;
+              height: 100%;
+              border-radius: 2px;
+              background: #3894FF;
+              font-size: 21px;
+              font-family: 'Segoe UI';
+              font-weight: 400;
+              color: #FFFFFF;
+              text-align: center;
+            }
+          }
+          .item-type-sign{
+            width: 100%;
+            height: 20px;
+            margin-bottom: 10px;
+            @include flex(center,'');
+            .type-item{
+              height: 100%;
+              background: #F1F1F1;
+              border-radius: 3px;
+              font-size: 12px;
+              padding:3px 7px;
+              box-sizing: border-box;
+              font-family: 'Microsoft YaHei';
+              color: #717171;
+            }
+            .type-item:not(.type-item:nth-last-child(1)){
+              margin-right: 10px;
+            }
+          }
+          .car-info{
+            width: 100%;
+            @include flex(center,'');
+            .left-info{
+              @include flex(center,'');
+              flex-direction: column;
+              margin-right: 39px;
+              .info-item{
+                font-size: 12px;
+                font-family: 'Microsoft YaHei';
+                font-weight: 400;
+                @include flex(center,'');
+                span{
+                  color: #999999;
+                  display: inline-block;
+                  margin-right: 6px;
+                }
+                p{
+                  color: #292929;
+                }
+              }
+              .info-item:nth-child(1) {
+                margin-bottom: 10px;
+              }
+            }
+            .right-info{
+              .delete-icon{
+                width: 34px;
+                height: 34px;
+                background: rgba(241, 241, 241, 0.39);
+                border-radius: 50%;
+                @include flexCenter(center);
+                i{
+                  font-size: 16px;
+                  color: #FF4F2C;
+                }
+              }
+            }
+          }
+        }
+        .menu-list-item:not(.menu-list-item:nth-last-child(1)){
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+ 
+  .content-box{
+    height: 100%;
+    padding-top: 95px;
+    box-sizing: border-box;
+    @include flex('',center);
+    width: 100%;
+      .main-box{
+        width: 1112px;
+        height: 394px;
+        background: rgba(255, 255, 255, 0.39);
+        border: 1px solid #707070;
+        .title{
+          width: 100%;
+          text-align: center;
+          color:#3695FF;
+          font-size: 60px;
+          letter-spacing: 2px;
+          font-family: Arial,Microsoft YaHei,黑体,宋体,sans-serif;
+        }
+      }
+    }
+}

@@ -4,10 +4,14 @@
  * @Author: Ada
  * @Date: 2021-12-30 11:16:29
  * @LastEditors: Ada
- * @LastEditTime: 2021-12-30 11:16:30
+ * @LastEditTime: 2022-01-05 13:56:29
 -->
 <template>
-  <div>登录</div>
+  <div class="login-page">
+     <div class="container-box">
+       
+     </div>
+  </div>
 </template>
 <script>
 export default {
@@ -23,5 +27,6 @@ export default {
   methods: {},
 };
 </script>
-<style lang='scss'>
+<style lang='scss' scoped>
+@import './Login.scss'
 </style>

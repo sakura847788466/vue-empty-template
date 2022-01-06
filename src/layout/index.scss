@@ -27,8 +27,12 @@ $left-margin-right:24px;
 
     }
     .main-box{
-      width: calc(100% - 154px);
+      // width: calc(100% - 154px);
+      width: 100%;
       height: 100%;
     }
+  }
+  .changeBg{
+    background: #fff;
   }
 }

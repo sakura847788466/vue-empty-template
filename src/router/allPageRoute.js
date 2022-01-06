@@ -4,7 +4,7 @@
  * @Author: Ada
  * @Date: 2021-12-30 11:24:03
  * @LastEditors: Ada
- * @LastEditTime: 2021-12-30 14:03:40
+ * @LastEditTime: 2022-01-06 15:38:03
  */
 import Layout from '@/layout/index'
 export const constantRouterMap = [{
@@ -35,5 +35,17 @@ export const asyncRouterMap = [{
       path: '/system/user',
       name: 'user',
       component: () => import ('@/views/System/User/User.vue'),
+      meta: { 
+        isLeft:true,
+        roles:[1,2,3]
+       }
+    },{
+      path: '/system/business',
+      name: 'business',
+      component: () => import ('@/views/Business/Business.vue'),
+      meta: { 
+        isLeft:false,
+        roles:[1,2,3]
+       }
     }]
 }]
