@@ -249,6 +249,17 @@
           cursor: pointer;
         }
       }
+      .earch-form-animate{
+        position: absolute;
+        left: 0;
+        bottom: -106px;
+        height: 40px;
+        width: 190px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     #map {
       width: 100%;

@@ -4,7 +4,7 @@
  * @Author: Ada
  * @Date: 2021-12-30 11:31:09
  * @LastEditors: Ada
- * @LastEditTime: 2022-01-06 17:22:33
+ * @LastEditTime: 2022-02-10 16:58:42
 -->
 
 <template>
@@ -115,6 +115,10 @@
           >{{windPartStatus?'移除风场效果(局部)':'添加风场效果(局部)'}}</el-button>
         </div>
       </div>
+      <div class="option-list" v-if="false">
+        <!-- 走马灯 -->
+        <LazyMarquee :lists="lists" />
+      </div>
     </div>
     <div class="right">
       <div class="nav-option">
@@ -138,6 +142,15 @@
           </div>
           <div class="position-right" @click="mapPosition">定位</div>
         </div>
+        <!-- 是否开启动画 -->
+        <div class="earch-form-animate">
+          <el-switch
+            v-model="isAnimate"
+            active-color="#31dab3"
+            inactive-text="单个告警动画显示测试"
+            @change="changeAnimateShow"
+          ></el-switch>
+        </div>
       </div>
       <div id="map"></div>
     </div>
@@ -152,12 +165,15 @@ import "@/utils/wind/leaflet-velocity";
 import areaData from "@/utils/data/area.js";
 import "@/utils/Semicircle";
 import { typhoon } from "@/utils/typhoon";
+import LazyMarquee from '../../../components/LazyMarquee/LayMarquee'
 
 import Axios from "axios";
 export default {
   name: "user",
   props: [],
-  components: {},
+  components: {
+    LazyMarquee
+  },
   data() {
     var validateLongitude = (rule, value, callback) => {
       let reg = /^(-|\+)?(((\d|[1-9]\d|1[0-7]\d|0{1,3})\.\d{0,8})|(\d|[1-9]\d|1[0-7]\d|0{1,3})|180\.0{0,8}|180)$/g;
@@ -191,6 +207,8 @@ export default {
       normal: null, //当前图层
       vectorMap: null, //遥感图层
       featureGroup: null, //map实例图层组集合
+      lists:['测试走马灯测试走马灯'],
+      isAnimate:true,
       optionsList: [
         {
           iconClass: "iconfont iconceju",
@@ -259,7 +277,8 @@ export default {
       wenzhouData: [],
       latlngs: [], //起始点经纬度
       endlatlngs: [], //结束点经纬度
-      tmprect: null //临时矩形
+      tmprect: null, //临时矩形
+      endFinalRectangle:null //最终矩形
     };
   },
   computed: {},
@@ -385,14 +404,16 @@ export default {
             fillColor: "rgba(255, 255, 255, 0.1)",
             weight: 1
           });
-          rectangle.addTo(_this.map);
+          _this.endFinalRectangle = rectangle.addTo(_this.map);
           L.DomUtil.removeClass(_this.map._container, "leaflet-cursor-pointer"); //恢复鼠标样式
           // 设置框选中心点
           _this.map.fitBounds(_this.finalLng);
         });
     },
     // 矩形清除
-    removeRectagle() {},
+    removeRectagle() {
+      this.map.removeLayer(this.endFinalRectangle)
+    },
     // 查询台风列表
     openThpyoon() {
       this.dialogVisibleTyphoon = true;
@@ -570,6 +591,19 @@ export default {
         this.getStationMarker(item);
       });
     },
+    changeAnimateShow() {
+      let animateElements = document.getElementsByClassName("errorAnimation");
+      // console.log(animateElements[0])
+       this.isAnimate
+          ? (animateElements[0].style.opacity = "1")
+          : (animateElements[0].style.opacity = "0");
+      
+      // animateElements.forEach(element => {
+      //   this.isAnimate
+      //     ? (element.style.opacity = "1")
+      //     : (element.style.opacity = "0");
+      // });
+    },
     // 设置站点状态marker status:0 正常 1 异常 2 停用
     getStationMarker(obj) {
       //1异常时加载报警动画,切换成divIcon渲染
@@ -578,7 +612,7 @@ export default {
       if (obj && obj.status && obj.status === 1) {
         let stationHtml = `<div class="error-station">
           <img src="${require("../../../../public/image/warn_storm_tide.png")}">
-            <span></span><span></span>
+            <span class="errorAnimation"></span>
           </img>
           </div>`;
         myIcon = L.divIcon({
