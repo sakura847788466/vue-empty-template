@@ -4,7 +4,7 @@
  * @Author: Ada
  * @Date: 2021-12-30 11:31:09
  * @LastEditors: Ada
- * @LastEditTime: 2022-02-10 16:58:42
+ * @LastEditTime: 2022-02-11 17:14:03
 -->
 
 <template>
@@ -354,6 +354,8 @@ export default {
     },
     // 矩形区域框选
     mapRectangle(index) {
+      // eslint-disable-next-line no-console
+      console.log(L)
       // 先确定中心点坐标
       let _this = this;
       _this.currentActive = index;
@@ -592,17 +594,12 @@ export default {
       });
     },
     changeAnimateShow() {
-      let animateElements = document.getElementsByClassName("errorAnimation");
-      // console.log(animateElements[0])
-       this.isAnimate
-          ? (animateElements[0].style.opacity = "1")
-          : (animateElements[0].style.opacity = "0");
-      
-      // animateElements.forEach(element => {
-      //   this.isAnimate
-      //     ? (element.style.opacity = "1")
-      //     : (element.style.opacity = "0");
-      // });
+      let animateElements = document.querySelectorAll(".errorAnimation");
+      animateElements.forEach(element => {
+        this.isAnimate
+          ? (element.style.opacity = "1")
+          : (element.style.opacity = "0");
+      });
     },
     // 设置站点状态marker status:0 正常 1 异常 2 停用
     getStationMarker(obj) {
