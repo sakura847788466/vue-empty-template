@@ -4,13 +4,12 @@
  * @Author: Ada
  * @Date: 2021-12-30 11:24:03
  * @LastEditors: Ada
- * @LastEditTime: 2022-01-06 15:38:03
+ * @LastEditTime: 2022-02-14 14:01:46
  */
 import Layout from '@/layout/index'
 export const constantRouterMap = [{
     path: '/',
-    name: 'Login',
-    component: () => import ('@/page/Login/Login.vue'),
+    redirect:'/main'
   },
   {
     path: '/login',
